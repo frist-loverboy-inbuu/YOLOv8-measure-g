@@ -1,0 +1,35 @@
+# ============================================================
+# 单摆重力加速度测量 —— 全局配置文件
+# 所有参数集中管理，不再在代码里硬编码
+# ============================================================
+
+paths:
+  model: "runs/detect/ball_detector6/weights/best.pt"
+  video: "21.mp4"
+  output_dir: "output"
+
+pendulum:
+  length_cm: 15.5
+  use_pixel_calibration: false
+
+tracking:
+  conf_threshold: 0.1
+  iou_threshold: 0.3
+  track_history: 80
+  box_thickness: 5
+  target_class: 0
+
+period:
+  method: "fft"          # fft | autocorrelation | peaks | all (compare three)
+  peak_prominence: 15
+  peak_min_distance_sec: 0.3
+
+video:
+  fps_fallback: 30.0
+  save_annotated: false
+
+dataset:
+  train_ratio: 0.8
+  image_dir: "dataset/images"
+  label_dir: "dataset/labels"
+  output_dir: "dataset"
